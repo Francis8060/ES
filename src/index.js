@@ -116,3 +116,36 @@ test(1, 3, 2, 3) // [1, 3, 2]
 */
 
 
+/* Set对象
+const arrSet =  new Set([1, 2, 3, 2])
+console.log( arrSet.add('test') )   // {1, 2, 3, 'test' }
+console.log( arrSet.has(2) )       // true
+console.log( arrSet.size )         // 4
+const iterator = arrSet.entries()
+for( let [key, value] of iterator) {
+    console.log(key)            // 1, 2, 3, 'test'
+    console.log(value)          // 1, 2, 3, 'test'
+}
+console.log( arrSet.delete(2) ) // true
+console.log(arrSet)
+*/
+
+
+/*
+const map = new Map()
+map.set('name', 'francis' )
+map.set('age', 20)
+console.log(map.get('name'))    // francis
+console.log(map.has('name'))    // true
+console.log( map.keys() )       // {'name', 'age'}
+console.log( map.values() )     // {'francis', 20}
+for( let [key, value] of map.entries()) {
+    console.log(key, value)     // name francis     // age 20     
+}
+
+const mapArr = [['key1', 'value1'], ['key2', 'value2']]
+const map2 = new Map(mapArr)
+console.log(map2)                   // {'key1' => 'value1', 'key2' => 'value2'}
+console.log( Array.from(map2) )     // [['key1', 'value1'], ['key2', 'value2']]
+*/
+
