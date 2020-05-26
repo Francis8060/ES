@@ -149,3 +149,57 @@ console.log(map2)                   // {'key1' => 'value1', 'key2' => 'value2'}
 console.log( Array.from(map2) )     // [['key1', 'value1'], ['key2', 'value2']]
 */
 
+
+/*
+function fn(reslove) {
+    setTimeout(() => {
+        reslove(123)
+    }, 1e3)
+}
+let p0 = new Promise(fn)        // 返回的是一个Promise对象,状态为pending
+p0.then(res => {
+    console.log(res)            // 123
+})
+
+let p1 = Promise.resolve(234)   // 返回一个Promise对象，状态为resolve
+p1.then(res => {
+    console.log(res)            // 234
+})
+
+function delay(time) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(time)
+        }, time)
+    })
+}
+*/
+
+/**
+ * @param { Promise[] } -需要等待所有的Promise对象全部resolve后，并按照顺序返回数组
+ * - 所有Promise对象状态为resolve后程序退出
+ */
+/*
+Promise.all([
+    delay(2),
+    delay(1),
+    delay(8),
+    delay(4)
+]).then(res => {
+    console.log(res)        // [2, 1, 8, 4]
+})
+*/
+
+
+/**
+ * @param { Promise[] } - 只要有一个Promise对象的状态变为resolve或reject就结束
+ */
+/*
+Promise.race([
+    delay(2),
+    delay(1),
+    delay(3)
+]).then(res => {
+    console.log(res)        // 1
+})
+*/
