@@ -42,3 +42,28 @@ plugins: [
     })
 ]
 ```
+
+- 解析css，使用`style-loader css-loader` 需要先安装`npm i style-loader css-loader -D`
+- 解析scss，使用`style-loader css-loader sass-loader` 需要先安装`npm i node-sass sass-loader -D`
+``` js
+module: {
+    rules: [{
+        test: /\.css$/,
+        // css-loader解析css文件中@import这种语法 style-loader把css文件插入到head标签中
+        // use: ['style-loader', 'css-loader']
+        use: [{
+            loader: 'style-loader',
+            options: {
+                // 将css插入到head内部的上面，这个有待商榷
+                insertAt: 'top'
+            }
+        }, 'css-loader']
+    }, {
+        test: /\.scss$/,
+        use: [{
+            loader: 'style-loader'
+        }, 'css-loader', 'sass-loader']
+    }]
+},
+```
+

@@ -14,6 +14,21 @@ module.exports = {
         contentBase: './dist',
         compress: true
     },
+    module: {
+        rules: [{
+            test: /\.css$/,
+            // css-loader解析css文件中@import这种语法 style-loader把css文件插入到head标签中
+            // use: ['style-loader', 'css-loader']
+            use: [{
+                loader: 'style-loader'
+            }, 'css-loader']
+        }, {
+            test: /\.scss$/,
+            use: [{
+                loader: 'style-loader'
+            }, 'css-loader', 'sass-loader']
+        }]
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
