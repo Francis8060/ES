@@ -18,5 +18,10 @@ git branch -d 分支名称
 git push origin --delete 分支名称
 ```
 
-
-这是版本v1.1
+- 将分支A上的修改同步到分支B
+``` js
+// 切换到B分支
+git checkout B
+// 将A分支合并到B
+git merge A
+```
