@@ -67,3 +67,58 @@ module: {
 },
 ```
 
+- 抽离css，使用抽离css插件，`mini-css-extract-plugin`，自动添加css前缀，使用`postcss-loader autoprefixer`, `npm i postcss-loader autoprefixer -D`
+``` js
+plugins: [
+    new MiniCssExtractPlugin({
+        // 当只有一个入口的时候
+        filename: 'index.css'
+        // 当有多个入口的时候
+        // filename: '[name].css'
+    })
+]
+
+module: {
+    rules: [{
+        test: /\.css$/,
+        use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            'postcss-loader'
+        ]
+    }, {
+        test: /\.scss$/,
+        use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            'postcss-loader',
+            'sass-loader'
+        ]
+    }]
+}
+
+// 为了css自动添加前缀
+// 根路径下新增一个postcss.config.js
+module.exports = {
+    plugins: [
+        require('autoprefixer')
+    ]
+}
+// 根路径新增一个.browserslistrc
+> 1%
+last 2 versions
+```
+
+- 压缩css,使用`mini-css-extract-plugin`提供的优化项, 压缩js`terser-webpack-plugin`,压缩css`optimize-css-assets-webpack-plugin`, 
+`npm i terser-webpack-plugin optimize-css-assets-webpack-plugin -D`
+``` js
+optimization: {
+    minimizer: [
+        new TerserJSPlugin({}),
+        new OptimizeCSSAssetsPlugin({})
+    ]
+}
+```
+
+
+

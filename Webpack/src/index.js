@@ -1,3 +1,3 @@
 import './index.css'
-import './index.scss'
+import './test.scss'
 console.log(1)
