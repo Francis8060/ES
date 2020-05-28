@@ -19,6 +19,13 @@ module.exports = {
     },
     module: {
         rules: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            include: path.resolve(__dirname, 'src'),
+            use: {
+                loader: 'babel-loader'
+            }
+        }, {
             test: /\.css$/,
             // css-loader解析css文件中@import这种语法 style-loader把css文件插入到head标签中
             // use: ['style-loader', 'css-loader']

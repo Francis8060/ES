@@ -120,5 +120,47 @@ optimization: {
 }
 ```
 
+- js高级语法的转换，需要安装`babel-loader @babel/core @babel/preset-env`
+- js对于class的转换和装饰器的转换，需要`@babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators`
+- js对于一些对象如（__classCallCheck__）进行抽离，减少打包后的体积，`@babel/plugin-transform-runtime @babel/runtime`,`npm install --save-dev @babel/plugin-transform-runtime npm install --save @babel/runtime`
+- 对于一些新的api，使用polyfill  `npm install --save @babel/polyfill` 在入口文件中引入`require("@babel/polyfill")`
+``` js
+module: {
+    rules: [{
+        test: /\.js$/,
+        exclude: /node_moduels/,
+        include: path.resolve(__dirname, 'src'),
+        use: {
+            loader: 'babel-loader'
+        }
+    }]
+}
 
+// 新增babel.config.js
+module.exports = {
+    presets: [ '@babel/preset-env' ],
+    plugins: [
+        '@babel/plugin-transform-runtime',
+        ['@babel/plugin-proposal-decorators', { 'legacy': true }],
+        ['@babel/plugin-proposal-class-properties', { 'loose' : true }]
+    ]
+}
+```
 
+- 对于js语法的一些校验，使用eslint `eslint eslint-loader`，下载一些eslint的一些配置，[下载地址](https://eslint.org/demo),创建一个文件`.eslintrc.json`
+- 关于eslint的一些[常用配置讲解](https://www.cnblogs.com/zhaozhenzhen/p/12487442.html)
+``` js
+module: {
+    rules: [{
+        test: /\.js$/,
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, 'src'),
+        use: {
+            loader: 'eslint-loader',
+            options: {
+                enforce: 'pre'
+            }
+        }
+    }]
+}
+```
