@@ -1,0 +1,11 @@
+$color: red;
+body {
+    color: $color;
+    box-shadow: 0 0 2px #333;
+    div {
+        width: 200px;
+        height: 200px;
+        background: url("../imgs/logo.png");
+        // object-fit: fill;
+    }
+}

@@ -71,8 +71,8 @@ module: {
 ``` js
 plugins: [
     new MiniCssExtractPlugin({
-        // 当只有一个入口的时候
-        filename: 'index.css'
+        // 当只有一个入口的时候,而且会被打包到css文件夹下
+        filename: 'css/index.css'
         // 当有多个入口的时候
         // filename: '[name].css'
     })
@@ -163,4 +163,16 @@ module: {
         }
     }]
 }
+```
+
+- 对于第三库的引入，如jquery`npm i jquery`
+``` js
+const webpack = require('webpack')
+
+plugins: [
+    // 在每个模块中都注入$对象
+    new webpack.ProvidePlugin({
+        $: 'jquery'
+    })
+]
 ```
