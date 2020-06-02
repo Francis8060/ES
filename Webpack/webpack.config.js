@@ -14,7 +14,7 @@ module.exports = {
         filename: 'main.[hash:8].js',
         path: path.resolve(__dirname, 'dist'),
         // 当执行npx webpack，publicPath: './'; 当执行npx webpack-dev-server,publicPath: '/'
-        publicPath: './'
+        publicPath: '/'
     },
     devServer: {
         port: 8081,
@@ -91,8 +91,8 @@ module.exports = {
                 from: path.resolve(__dirname, './public/doc'),
                 to: path.resolve(__dirname, './dist/doc')
             }]
-        }),
-        new webpack.BannerPlugin( `${new Date().toLocaleString()} author: Francis`)
+        })
+        // new webpack.BannerPlugin( `${new Date().toLocaleString()} author: Francis`)
     ],
     optimization: {
         minimizer: [
@@ -103,6 +103,16 @@ module.exports = {
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'src')
+        }
+    },
+    devServer: {
+        proxy: {
+            '/mock': {
+                target: 'http://localhost:4000',
+                pathRewrite: {
+                    '/mock': ''
+                }
+            }
         }
     }
 }

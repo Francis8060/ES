@@ -278,3 +278,34 @@ plugins: [
     new webpack.BannerPlugin( `${new Date().toLocaleString()} author: Francis`)
 ]
 ```
+
+- webpack解决跨域
+``` js
+devServer: {
+    proxy: {
+        '/mock': {
+            target: 'http://localhost:4000',
+            pathRewrite: {
+                '/mock': ''
+            }
+        }
+    }
+}
+// 在main.js
+const xhr = new XMLHttpRequest()
+
+xhr.open('GET', '/mock/api/user', true)
+xhr.onload = () => {
+    console.log(xhr.respone)
+}
+xhr.send()
+
+// 本地启动一个服务serve.js,启动服务直接是node serve.js
+const express = require('express')
+const app = express()
+
+app.get('/api/user', (req, res) => {
+    res.json({ name: 'Francis' })
+})
+app.listen(400)
+```

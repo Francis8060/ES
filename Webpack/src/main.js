@@ -37,3 +37,14 @@ console.log(logo)
 const img = new Image()
 img.src = logo
 document.body.appendChild(img)
+
+
+const xhr = new XMLHttpRequest()
+
+xhr.open('GET', '/mock/api/user', true)
+
+xhr.onload = () => {
+    console.log(xhr.response, 47)
+}
+
+xhr.send()
