@@ -41,7 +41,7 @@ document.body.appendChild(img)
 
 const xhr = new XMLHttpRequest()
 
-xhr.open('GET', '/mock/api/user', true)
+xhr.open('GET', '/api/user', true)
 
 xhr.onload = () => {
     console.log(xhr.response, 47)

@@ -309,3 +309,23 @@ app.get('/api/user', (req, res) => {
 })
 app.listen(400)
 ```
+
+- 解决跨域
+> 在服务端启动一个接口服务，并把页面也启动,需要使用webapck中间件，`webpack-dev-middleware -D`,启动服务就是`node serve.js`
+``` js
+// serve.js
+const webpack = require('webpack')
+const webpackDevMiddleware = require('webpack-dev-middleware')
+const express = require('express')
+const webpackConfig = require('./webpack.config.js')
+
+const app = express()
+app.get('/api/user', (req, res) => {
+    res.json({ name: 'Francis' })
+})
+
+const compiler = webapck(webpackConfig)
+app.use(webpackDevMiddleware(compiler))
+
+app.listen(4000)
+```
