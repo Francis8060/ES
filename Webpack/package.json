@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.10.1",
+    "bootstrap": "^4.5.0",
     "html-withimg-loader": "^0.1.16",
     "jquery": "^3.5.1"
   }

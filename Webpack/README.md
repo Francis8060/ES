@@ -329,3 +329,16 @@ app.use(webpackDevMiddleware(compiler))
 
 app.listen(4000)
 ```
+
+- 解析第三方模块
+``` js
+resolve: {
+    alias: {
+        '@': path.resolve(__dirname, 'src'),
+        'boot': 'bootstrap/dist/css/bootstrap.css'      
+    },
+    extensions: ['.js', '.css', '.json', '.vue'],
+    // 默认去node_modules下找package.json中找main对应的，当更改成这就会先去找style对应的
+    mainFields: ['style', 'main']
+}
+```

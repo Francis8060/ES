@@ -102,8 +102,12 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, 'src')
-        }
+            '@': path.resolve(__dirname, 'src'),
+            'boot': 'bootstrap/dist/css/bootstrap.css'
+        },
+        extensions: ['.js', '.css', '.json'],
+        // 默认去node_modules下找package.json中找main对应的，当更改成这就会先去找style对应的
+        mainFields: ['style', 'main']
     },
     devServer: {
         proxy: {

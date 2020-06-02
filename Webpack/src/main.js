@@ -1,6 +1,8 @@
 import logo from '@/imgs/logo.png'
 // import './styles/index.css'
 import './styles/test.scss'
+// import 'bootstrap'
+import 'boot'
 // const fn = () => {
 //     console.log(2)
 // }
