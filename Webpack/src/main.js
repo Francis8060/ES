@@ -1,5 +1,5 @@
 import logo from '@/imgs/logo.png'
-import './styles/index.css'
+// import './styles/index.css'
 import './styles/test.scss'
 // const fn = () => {
 //     console.log(2)

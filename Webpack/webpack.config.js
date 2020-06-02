@@ -45,19 +45,20 @@ module.exports = {
             test: /\.css$/,
             // css-loader解析css文件中@import这种语法 style-loader把css文件插入到head标签中
             // use: ['style-loader', 'css-loader']
-            use: [
-                MiniCssExtractPlugin.loader,
-                'css-loader',
-                'postcss-loader'
-            ]
+            use: [{
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    publicPath: '../'
+                }
+            }, 'css-loader', 'postcss-loader']
         }, {
             test: /\.scss$/,
-            use: [
-                MiniCssExtractPlugin.loader,
-                'css-loader',
-                'postcss-loader',
-                'sass-loader'
-            ]
+            use: [{
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    publicPath: '../'
+                }
+            }, 'css-loader', 'postcss-loader', 'sass-loader']
         }]
     },
     plugins: [

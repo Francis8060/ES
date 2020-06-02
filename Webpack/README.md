@@ -176,3 +176,86 @@ plugins: [
     })
 ]
 ```
+
+- 抽离样式文件、图片
+``` js
+module: {
+    // 抽离样式
+    rules: [{
+        test: /\.css$/,
+        use: [{
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+                // 解析css中图片路径问题
+                publicPath: '../'
+            }
+        }, 'css-loader', 'postcss-loader']
+    }, {
+        test: /\.scss$/,
+        use: [{
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+                // 解析css中图片路径问题
+                publicPath: '../'
+            }
+        }, 'css-loader', 'postcss-loader', 'sass-loader']
+    }]
+}
+
+plugins: [
+    new MiniCssExtractPlugin({
+        // 当只有一个入口的时候
+        filename: 'styles/index.css'
+        // 当有多个入口的时候
+        // filename: '[name].css'
+    })
+]
+
+// 抽离图片
+module: {
+    rules: [{
+        test: /\.html$/,
+        use: 'html-withimg-loader'
+    }, {
+        test: /\.(jpg|png|jpeg|gif)$/,
+        use: [{
+            loader: 'url-loader',
+            options: {
+                // 超过20k就会使用file-loader，小于20k就会把图片转换为base64
+                limit: 20 * 1024,
+                esModule: false,
+                outputPath: 'img/'
+            }
+        }]
+    }]
+}
+```
+
+- 对于调试
+``` js
+// 源码映射，会单独生成一个sourcemap文件，出错了会标识当前当前报错的列和行
+devtool: 'source-map'
+
+// 不会产生单独的文件，但是可以显示报错的行和列
+devtool: 'eval-source-map'
+
+// 不会产生列，但会生产一个单独的映射文件
+devtool: 'cheap-module-source-map'
+
+// 不会产生文件，集成在打包后的文件，不会产生列
+devtool: 'cheap-module-eval-source-map'
+```
+
+- 文件打包监控
+``` js
+watch: true,
+// 监控选项
+watchOptions: {
+    // 每秒询问1000次
+    poll: 1000,
+    // 防抖，输入的时候
+    aggregateTimeout: 500,
+    // 不需要进行监控的文件
+    ignored: /node_modules/
+}
+```
