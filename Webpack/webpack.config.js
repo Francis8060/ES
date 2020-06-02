@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyWebapckPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
@@ -81,7 +83,16 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
             $: 'jquery'
-        })
+        }),
+        // 不用传参数，默认删除的就是output.path
+        new CleanWebpackPlugin(),
+        new CopyWebapckPlugin({
+            patterns: [{
+                from: path.resolve(__dirname, './public/doc'),
+                to: path.resolve(__dirname, './dist/doc')
+            }]
+        }),
+        new webpack.BannerPlugin( `${new Date().toLocaleString()} author: Francis`)
     ],
     optimization: {
         minimizer: [

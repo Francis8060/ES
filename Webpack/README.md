@@ -259,3 +259,22 @@ watchOptions: {
     ignored: /node_modules/
 }
 ```
+
+- 常用的插件`clean-webpack-plugin`, `copy-webpack-plugin`, `BannerPlugin`, `BannerPlugin`是webpack内置的一个插件，不需要安装
+``` js
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
+plugins: [
+    // 每次打包的时候先清除特定的文件
+    new CleanWebpackPlugin()
+    // 打包直接拷贝的文件
+    new CopyWebpackPlugin({
+        patterns: [{
+            from: path.resolve(__dirname, './public/doc'),
+            to: path.resolve(__dirname, './dist/doc')
+        }]
+    })
+    // 座位注释插入到头部, 这个不能和TerserJSPlugin一块使用
+    new webpack.BannerPlugin( `${new Date().toLocaleString()} author: Francis`)
+]
+```
