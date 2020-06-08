@@ -3,6 +3,15 @@ import logo from '@/imgs/logo.png'
 import './styles/test.scss'
 // import 'bootstrap'
 import 'boot'
+import moment from 'moment'
+import 'moment/locale/zh-cn'
+import React from 'react'
+import { render } from 'react-dom'
+
+moment.locale('zh-cn')
+console.log(moment().endOf('day').fromNow())
+
+render(<h1>jsx</h1>, window.root)
 // const fn = () => {
 //     console.log(2)
 // }
@@ -41,12 +50,11 @@ img.src = logo
 document.body.appendChild(img)
 
 
-const xhr = new XMLHttpRequest()
+// const xhr = new XMLHttpRequest()
+// xhr.open('GET', '/api/user', true)
+// xhr.onload = () => {
+//     console.log(xhr.response, 47)
+// }
+// xhr.send()
 
-xhr.open('GET', '/api/user', true)
 
-xhr.onload = () => {
-    console.log(xhr.response, 47)
-}
-
-xhr.send()

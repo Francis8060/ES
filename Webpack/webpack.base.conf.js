@@ -8,19 +8,27 @@ const CopyWebapckPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
-    // mode: 'production',
     entry: './src/main.js',
     output: {
         filename: 'main.[hash:8].js',
         path: path.resolve(__dirname, 'dist'),
         // 当执行npx webpack，publicPath: './'; 当执行npx webpack-dev-server,publicPath: '/'
-        publicPath: '/'
+        // publicPath: './'
+        publicPath: process.env.NODE_ENV === 'production' ? './' : '/'
     },
     devServer: {
         port: 8081,
         progress: true,
         contentBase: './dist',
-        compress: true
+        compress: true,
+        proxy: {
+            '/mock': {
+                target: 'http://localhost:4000',
+                pathRewrite: {
+                    '/mock': ''
+                }
+            }
+        }
     },
     module: {
         rules: [{
@@ -88,15 +96,19 @@ module.exports = {
         new CleanWebpackPlugin(),
         new CopyWebapckPlugin({
             patterns: [{
-                from: path.resolve(__dirname, './public/doc'),
-                to: path.resolve(__dirname, './dist/doc')
+                from: path.resolve(__dirname, 'public/doc'),
+                to: path.resolve(__dirname, 'dist/doc')
             }]
-        })
+        }),
+        new webpack.IgnorePlugin(/\.\/locale/, /moment/)
+        // new webpack.DefinePlugin({
+        //     'process.env.NODE_ENV': JSON.stringify('production')
+        // })
         // new webpack.BannerPlugin( `${new Date().toLocaleString()} author: Francis`)
     ],
     optimization: {
         minimizer: [
-            new TerserJSPlugin({}),
+            // new TerserJSPlugin({}),
             new OptimizeCSSAssetsPlugin({})
         ]
     },
@@ -105,18 +117,9 @@ module.exports = {
             '@': path.resolve(__dirname, 'src'),
             'boot': 'bootstrap/dist/css/bootstrap.css'
         },
-        extensions: ['.js', '.css', '.json'],
+        // extensions: ['.js', '.css', '.json'],
         // 默认去node_modules下找package.json中找main对应的，当更改成这就会先去找style对应的
         mainFields: ['style', 'main']
     },
-    devServer: {
-        proxy: {
-            '/mock': {
-                target: 'http://localhost:4000',
-                pathRewrite: {
-                    '/mock': ''
-                }
-            }
-        }
-    }
+    watch: true
 }

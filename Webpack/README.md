@@ -342,3 +342,25 @@ resolve: {
     mainFields: ['style', 'main']
 }
 ```
+
+- 定义环境变量
+``` js
+// webpack 自带的插件
+new webpack.DefinePlugin({
+    DEV: JSON.stringfy('development'),
+    FLAG: 'true'
+})
+```
+
+- 优化插件`IgnorePlugin`
+``` js
+//  main.js
+import moment from 'moment' // 这样会引入moment所有的语言包
+console.log(moment().endOf('day').fromNow())
+
+// webpack.config.js 会忽略引入的语言包，要是想使用，直接手动引入
+new webpack.IgnorePlugin('/\.\/locale/', /moment/)
+import 'moment/locale/zh-cn'
+```
+
+- 动态连接库`DllPlugin`
