@@ -24,7 +24,7 @@ module.exports = {
 - 本地启动一个server `npm i webpack-dev-server -D` 在package.json中增加配置`dev: webpack-dev-server`
 ``` js
 devServer: {
-    poet: 3000,
+    port: 3000,
     progress: true,
     contentBase: './dist',
     compress: true

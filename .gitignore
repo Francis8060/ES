@@ -1,2 +1,2 @@
-Webpack/node_modules
-Webpack/dist
+*/dist
+*/node_modules
