@@ -32,7 +32,12 @@ git commit -m "本次提交说明"
 git commit -am "本次提交说明"
 ```
 
+## repository => remote
+``` js
+// 本地仓库推送到远程仓库，如果远程仓库没有该分支，会新建一个同名的远程分支
+git push
 
+```
 
 
 
