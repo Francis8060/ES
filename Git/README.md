@@ -69,6 +69,12 @@ git branch -d [分支名称]
 
 // 修改本地分支名称
 git branch -m [分支名称]
+
+// 切换本地分支
+git checkout [分支名称]
+
+// 创建一个本地分支并切换到创建好的分支
+git checkout -b [分支名称]
 ```
 
 
