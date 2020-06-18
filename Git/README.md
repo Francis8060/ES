@@ -1,5 +1,5 @@
 # git流程图
-![Image text](https://github.com/Francis8060/DOC/tree/master/Git/images/gitArea.png)
+![Image](https://user-gold-cdn.xitu.io/2020/6/15/172b390eab77fcbd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 工作区`workspace`、暂存区`index / stage`、本地仓库`repository`、远程仓库`remote`
 
 
