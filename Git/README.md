@@ -11,7 +11,7 @@
 git status 
 ```
 
-## 工作区 => 暂存区(add) 
+## workspace => stage  
 ``` js
 // 添加指定的文件到暂存区
 git add [file1] [file2]
@@ -21,9 +21,26 @@ git add [dir]
 
 // 添加所有文件到暂存区
 git add .
-
-// 删除工作区/暂存区
 ```
+
+## stage => repository
+``` js
+// 将暂存区的文件提交到本地仓库并添加提交书名
+git commit -m "本次提交说明"
+
+// add和commit的合并
+git commit -am "本次提交说明"
+```
+
+
+
+
+
+
+
+
+
+
 
 - 查看远程所有分支`git branch -a`
 - 查看本地分支`git branch`
