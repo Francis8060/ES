@@ -75,6 +75,9 @@ git checkout [分支名称]
 
 // 创建一个本地分支并切换到创建好的分支
 git checkout -b [分支名称]
+
+// 基于master分支创建一个新的分支并切换到新的分支
+git checkout -b [分支名称] master
 ```
 
 
