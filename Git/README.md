@@ -92,3 +92,4 @@ git checkout -b [分支名称] master
 git checkout B
 git merge A
 ```
+
