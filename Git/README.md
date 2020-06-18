@@ -1,3 +1,8 @@
+# git流程图
+![Image text](./images/gitArea.png)
+工作区`workspace`、暂存区`index / stage`、本地仓库`repository`、远程仓库`remote`
+
+
 - 查看远程所有分支`git branch -a`
 - 查看本地分支`git branch`
 - 切换分支`git checkout 分支名`
@@ -5,7 +10,7 @@
 - 本地创建分支并推送到git上
 ``` js
 // 创建创建分支
-git checkout -b 分支名称
+git checkout -b 分支名称\
 // 将本地分支推送到远程服务器
 git push --set-upstream origin 分支名称
 ```
