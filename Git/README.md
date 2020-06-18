@@ -5,6 +5,25 @@
 - 本地仓库  `repository`
 - 远程仓库  `remote`
 
+# 1.修改和提交
+``` js
+// 查看工作区和暂存状态
+git status 
+```
+
+## 工作区 => 暂存区(add) 
+``` js
+// 添加指定的文件到暂存区
+git add [file1] [file2]
+
+// 添加制定文件夹到暂存区，包括子目录
+git add [dir]
+
+// 添加所有文件到暂存区
+git add .
+
+// 删除工作区/暂存区
+```
 
 - 查看远程所有分支`git branch -a`
 - 查看本地分支`git branch`
