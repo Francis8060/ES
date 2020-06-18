@@ -1,5 +1,5 @@
 # git流程图
-![Image text](./images/gitArea.png)
+![Image text](https://github.com/Francis8060/DOC/tree/master/Git/images/gitArea.png)
 工作区`workspace`、暂存区`index / stage`、本地仓库`repository`、远程仓库`remote`
 
 
