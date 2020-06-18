@@ -44,7 +44,29 @@ git push origin [分支名称]
 git push origin --delete [分支名称]   或  git push origin :[分支名称] 
 ```
 
+## branch
+``` js
+// 查看本地分支
+git branch 或 git branch -l
 
+// 查看远程分支
+git branch -r
+
+// 查看所有分支（远程分支+本地分支）
+git branch -a
+
+// 查看所有分支并带上最新的提交信息
+git branch -av
+
+// 查看当前本地分支对应的远程分支
+git branch -vv
+
+// 创建本地分支
+git branch [分支名称]
+
+// 删除本地分支
+git branch -d [分支名称]
+```
 
 
 
