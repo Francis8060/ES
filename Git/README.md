@@ -67,6 +67,9 @@ git branch [分支名称]
 // 删除本地分支
 git branch -d [分支名称]
 
+// 强制删除一个本地分支
+git branch -D [分支名称]
+
 // 修改本地分支名称
 git branch -m [分支名称]
 
