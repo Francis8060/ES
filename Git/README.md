@@ -11,7 +11,7 @@
 git status 
 ```
 
-## workspace => stage  
+## workspace => stage (add)
 ``` js
 // 添加指定的文件到暂存区
 git add [file1] [file2]
@@ -23,7 +23,7 @@ git add [dir]
 git add .
 ```
 
-## stage => repository
+## stage => repository (commit)
 ``` js
 // 将暂存区的文件提交到本地仓库并添加提交书名
 git commit -m "本次提交说明"
@@ -32,11 +32,16 @@ git commit -m "本次提交说明"
 git commit -am "本次提交说明"
 ```
 
-## repository => remote
+## repository => remote (push)
 ``` js
-// 本地仓库推送到远程仓库，如果远程仓库没有该分支，会新建一个同名的远程分支
+// 本地仓库推送到远程仓库，远程仓库存在改分支
 git push
 
+// 如果远程仓库没有该分支，会新建一个同名的远程分支
+git push origin [分支名称]
+
+// 删除远程分支
+git push origin --delete [分支名称]   或  git push origin :[分支名称] 
 ```
 
 
