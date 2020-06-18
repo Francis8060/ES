@@ -5,6 +5,8 @@
 - 本地仓库  `repository`
 - 远程仓库  `remote`
 
+> 对于用户名和密码经常修改的可以在.git/config文件中修改加入用户名和密码`https://[用户名]:[密码]@github.com/Francis8060/DOC.git`
+
 # 1.修改和提交
 ``` js
 // 查看工作区和暂存状态
@@ -93,3 +95,23 @@ git checkout B
 git merge A
 ```
 
+## stash
+``` js
+// 将所有未提交的修改保存到堆栈中
+git stash
+
+// 给本次存储加个备注，以防时间久了忘记
+git stash save "备注"
+
+// 查看堆栈中的存储记录
+git stash list
+
+// 把堆栈中的数据回复，但stash记录并不会删除
+git stash apply "stash@{index}"
+
+// 把堆栈中的数据恢复并删除stash记录
+git stash pop "stash@{index}"
+
+// 删除stash记录
+git stash drop "stash@{index}"
+```
