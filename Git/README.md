@@ -117,4 +117,40 @@ git stash pop "stash@{index}"
 
 // 删除stash记录
 git stash drop "stash@{index}"
+
+// 删除所有存储的记录
+git stash clear
 ```
+
+## diff
+``` js
+// 查看工作区和暂存区单个文件的对比
+git diff [文件名称]
+
+// 查看工作区和暂存区的所有文件对比
+git diff
+
+// 查看工作区和暂存区有差异的文件列表
+git diff --stat
+
+// 查看暂存区和本地本地仓库的差异
+git  diff --staged/--cached
+
+// 查看工作去和本地仓库的文件差异
+git diff [分支名称]
+
+// 查看工作区与默认当前分支最新提交的差异
+git diff HEAD
+```
+
+## remote
+``` js
+// 查看所有远程主机
+git remote
+
+// 查看关联的远程仓库的详细信息
+git remote -v
+```
+
+## tag
+-  常用于发布版本
