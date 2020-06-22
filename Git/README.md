@@ -160,4 +160,16 @@ git tag [tag名称]
 
 // 推送一个本地tag到远程仓库
 git push origin [tag名称]
+
+// 切换到指定tag所对应的代码
+git checkout [tag名称]
+
+// 删除本地tag
+git tag -d [tag名称]
+
+// 删除远程tag
+git push origin :refs/tags/[tag名称]
+
+// 查看所有tag
+git tag
 ```
