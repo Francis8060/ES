@@ -154,3 +154,10 @@ git remote -v
 
 ## tag
 -  常用于发布版本
+``` js
+// 默认在HEAD上创建一个标签
+git tag [tag名称]
+
+// 推送一个本地tag到远程仓库
+git push origin [tag名称]
+```
