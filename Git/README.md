@@ -182,5 +182,22 @@ git checkout [文件名称]
 
 // 恢复暂存区的所有文件到工作区
 git checkout .
+
+// 回滚到最近一次提交的上一个版本
+git checkout HEAD^
+
+// 回滚到最近一次提交的上两个版本
+git checkout HEAD^^
 ```
-回滚
+
+- reset可以撤销工作区/暂存区的文件 `git reset [--hard|soft|mixed|merge|keep] [<commit>|HEAD]`
+``` js
+// 撤销暂存区的文件并不改变工作区
+git reset [文件名称]
+
+// 重置暂存区最近的一次提交，但并不改变工作区
+git reset 或 git reset HEAD
+
+// 重置工作区与暂存区，回退到最近一次提交的内容
+git reset --hard
+```
