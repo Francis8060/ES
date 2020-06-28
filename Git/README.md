@@ -183,3 +183,4 @@ git checkout [文件名称]
 // 恢复暂存区的所有文件到工作区
 git checkout .
 ```
+回滚
