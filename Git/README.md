@@ -173,3 +173,13 @@ git push origin :refs/tags/[tag名称]
 // 查看所有tag
 git tag
 ```
+
+## 版本切换、重设、撤销
+- checkout可以撤销工作区的文件
+``` js
+// 恢复暂存区的制定文件到工作区
+git checkout [文件名称]
+
+// 恢复暂存区的所有文件到工作区
+git checkout .
+```
