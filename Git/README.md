@@ -191,6 +191,9 @@ git checkout HEAD^
 
 // 回滚到最近一次提交的上两个版本
 git checkout HEAD^^
+
+// 切换到指定的commit版本
+git checkout [commit_id]
 ```
 
 - reset可以撤销工作区/暂存区的文件 `git reset [--hard|soft|mixed|merge|keep] [<commit>|HEAD]`
