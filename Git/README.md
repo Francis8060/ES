@@ -183,6 +183,9 @@ git checkout [文件名称]
 // 恢复暂存区的所有文件到工作区
 git checkout .
 
+// 没有提交暂存区，恢复暂存区的文件到工作区
+git checkout HEAD -- [filename]
+
 // 回滚到最近一次提交的上一个版本
 git checkout HEAD^
 
