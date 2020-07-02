@@ -206,6 +206,7 @@ git reset 或 git reset HEAD
 
 // 重置工作区与暂存区，回退到最近一次提交的内容
 git reset --hard
-```
 
-333
+// 提交到本地仓库，并未提交到远程仓库，恢复工作区和暂存区
+git reset --hard HEAD~1 或 git reset --hard HEAD^
+```
