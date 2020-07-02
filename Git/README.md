@@ -210,5 +210,7 @@ git reset --hard
 // 提交到本地仓库，并未提交到远程仓库，恢复工作区和暂存区
 git reset --hard HEAD~1 或 git reset --hard HEAD^
 ```
-https://juejin.im/post/5ee649ff51882542ea2b5108#heading-21(https://juejin.im/post/5ee649ff51882542ea2b5108#heading-21)
-https://juejin.im/post/5ee8e7d9518825432a35b0f2#heading-4(https://juejin.im/post/5ee8e7d9518825432a35b0f2#heading-4)
+
+## 参考
+[https://juejin.im/post/5ee649ff51882542ea2b5108#heading-21](https://juejin.im/post/5ee649ff51882542ea2b5108#heading-21)
+[https://juejin.im/post/5ee8e7d9518825432a35b0f2#heading-4](https://juejin.im/post/5ee8e7d9518825432a35b0f2#heading-4)
